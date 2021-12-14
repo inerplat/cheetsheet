@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+  labels:
+    name: nfs-pv
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 150Gi
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  persistentVolumeReclaimPolicy: Recycle
+  mountOptions:
+    - hard
+  nfs:
+    path: /mnt/nfs/YOUR_PATH 
+    server: 1.2.3.4
